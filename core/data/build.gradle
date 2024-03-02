@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace 'com.nahlasamir244.data'
+    namespace 'com.nahlasamir244.core.data'
     compileSdk 33
 
     defaultConfig {
@@ -17,13 +17,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
-    testOptions {
-        animationsDisabled true
-        unitTests {
-            includeAndroidResources true
-            returnDefaultValues true
-        }
-    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -40,8 +34,6 @@ android {
 }
 
 dependencies {
-    def lifecycle_version = "2.6.1"
-    def arch_version = "2.2.0"
     def room_version = "2.5.2"
 
     implementation 'androidx.core:core-ktx:1.10.1'
@@ -70,24 +62,13 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
     implementation "com.squareup.okhttp3:logging-interceptor:4.10.0"
 
+    //chucker request/response interceptor
+    debugImplementation "com.github.chuckerteam.chucker:library:4.0.0"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:4.0.0"
+
     //test libraries
-    kaptAndroidTest "com.google.dagger:hilt-android-compiler:2.44"
-
-    implementation "androidx.test:core:1.5.0"
-    testImplementation "androidx.arch.core:core-testing:$arch_version"
-    testImplementation "androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version"
-
     testImplementation 'junit:junit:4.13.2'
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
-    testImplementation "com.google.truth:truth:1.0.1"
 
-    testImplementation "org.mockito:mockito-core:5.3.0"
-    testImplementation "org.mockito.kotlin:mockito-kotlin:4.1.0"
-    testImplementation "org.mockito:mockito-android:5.3.0"
-    testImplementation "io.mockk:mockk:1.12.3"
-
-    testImplementation 'org.amshove.kluent:kluent:1.69'
-    testImplementation 'org.amshove.kluent:kluent-android:1.69'
 }
 kapt {
     correctErrorTypes true

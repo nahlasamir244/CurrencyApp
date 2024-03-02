@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -15,6 +19,14 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    testOptions {
+        animationsDisabled true
+        unitTests {
+            includeAndroidResources true
+            returnDefaultValues true
+        }
     }
 
     buildTypes {
@@ -32,18 +44,81 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 
 dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    def lifecycle_version = "2.6.1"
+    def arch_version = "2.2.0"
+    def nav_version = "2.6.0"
 
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    //lifecycle libraries
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    //hilt for dependency injection
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+    //test libraries
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:2.44"
+
+    implementation "androidx.test:core:1.5.0"
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
+    testImplementation "androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version"
+
     testImplementation 'junit:junit:4.13.2'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    testImplementation "com.google.truth:truth:1.0.1"
+
+    testImplementation "org.mockito:mockito-core:5.3.0"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.1.0"
+    testImplementation "org.mockito:mockito-android:5.3.0"
+    testImplementation "io.mockk:mockk:1.12.3"
+
+    testImplementation 'org.amshove.kluent:kluent:1.69'
+    testImplementation 'org.amshove.kluent:kluent-android:1.69'
+
+    androidTestImplementation "com.google.dagger:hilt-android-testing:2.44"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
+    androidTestImplementation "com.google.truth:truth:1.0.1"
+
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
+
+    androidTestImplementation 'androidx.recyclerview:recyclerview:1.1.0'
+    androidTestImplementation "androidx.test:rules:1.5.0"
+    androidTestImplementation "androidx.test:runner:1.5.2"
+
+    androidTestImplementation "io.mockk:mockk-android:1.12.3"
+    androidTestImplementation "org.mockito:mockito-android:5.3.0"
+    androidTestImplementation "org.mockito:mockito-core:5.3.0"
+    androidTestImplementation "org.mockito.kotlin:mockito-kotlin:4.1.0"
+}
+
+kapt {
+    correctErrorTypes true
 }
