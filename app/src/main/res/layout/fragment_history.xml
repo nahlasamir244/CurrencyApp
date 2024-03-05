@@ -1,13 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".history.HistoryFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mt_chart_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8ssp"
+            android:text="@string/chart"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <org.eazegraph.lib.charts.BarChart
+            android:id="@+id/bch_history"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8ssp"
+            android:padding="@dimen/_8ssp"
+            app:egBarWidth="@dimen/_16ssp"
+            app:egFixedBarWidth="true"
+            app:egLegendHeight="@dimen/_16ssp"
+            app:layout_constraintBottom_toBottomOf="@id/gl_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mt_chart_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mt_history_list_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8ssp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/history_list"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toStartOf="@id/gl_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bch_history"
+            tools:text="long texttttttttttttttttttttttttttttttttttttttttttttttttt" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_history_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_4ssp"
+            android:layout_marginTop="@dimen/_4ssp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/gl_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mt_history_list_title"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_history" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mt_currencies_list_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8ssp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/currencies_list"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/gl_2"
+            app:layout_constraintTop_toBottomOf="@id/bch_history"
+            tools:text="long texttttttttttttttttttttttttttttttttttttttttttttttttt" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_currencies_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_4ssp"
+            android:layout_marginTop="@dimen/_4ssp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gl_2"
+            app:layout_constraintTop_toBottomOf="@id/mt_currencies_list_title"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_currency" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

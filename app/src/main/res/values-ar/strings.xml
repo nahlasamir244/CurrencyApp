@@ -2,4 +2,11 @@
 <resources>
     <string name="app_name">تطبيق العملة</string>
     <string name="action_settings">اعدادات</string>
+    <string name="from">من</string>
+    <string name="to">الى</string>
+    <string name="amount">القيمة</string>
+    <string name="details">تفاصيل</string>
+    <string name="chart">رسم بيانى</string>
+    <string name="history_list">قيمة العملة مؤخرا</string>
+    <string name="currencies_list">قائمة العملات</string>
 </resources>

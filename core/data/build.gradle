@@ -20,6 +20,8 @@ android {
 
     buildTypes {
         release {
+            buildConfigField "String", "BASE_URL", '"http://data.fixer.io/api/"'
+            buildConfigField "String", "API_KEY", '"9885b81c0a81866894f4efc7de80ae38"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

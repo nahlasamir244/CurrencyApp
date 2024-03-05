@@ -29,4 +29,9 @@ class HistoryFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //todo :: use chart as in docs here >> https://github.com/paulroehr/EazeGraph
+    }
+
 }

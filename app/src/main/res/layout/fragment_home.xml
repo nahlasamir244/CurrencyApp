@@ -1,13 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".conversion.HomeFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_from"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16ssp"
+            android:layout_marginTop="@dimen/_16ssp"
+            android:hint="@string/from"
+            android:labelFor="@+id/et_from_dropdown"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="@id/gl_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/et_from_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:maxLines="1"
+                android:padding="@dimen/_16ssp"
+                android:textAlignment="viewStart"
+                tools:text="Euro" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_to"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16ssp"
+            android:hint="@string/to"
+            android:labelFor="@+id/et_to_dropdown"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/gl_2"
+            app:layout_constraintTop_toTopOf="@id/til_from">
+
+            <AutoCompleteTextView
+                android:id="@+id/et_to_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:maxLines="1"
+                android:padding="@dimen/_16ssp"
+                android:textAlignment="viewStart"
+                tools:text="Euro" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_exchange"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_8ssp"
+            android:src="@drawable/ic_exchange_blue_24"
+            app:layout_constraintBottom_toBottomOf="@id/til_from"
+            app:layout_constraintEnd_toStartOf="@id/til_to"
+            app:layout_constraintStart_toEndOf="@id/til_from"
+            app:layout_constraintTop_toTopOf="@id/til_from" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_from_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8ssp"
+            android:hint="@string/amount"
+            android:inputType="number"
+            android:minHeight="@dimen/_42ssp"
+            app:layout_constraintEnd_toEndOf="@id/til_from"
+            app:layout_constraintStart_toStartOf="@id/til_from"
+            app:layout_constraintTop_toBottomOf="@id/til_from" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_to_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8ssp"
+            android:hint="@string/amount"
+            android:inputType="number"
+            android:minHeight="@dimen/_42ssp"
+            app:layout_constraintEnd_toEndOf="@id/til_to"
+            app:layout_constraintStart_toStartOf="@id/til_to"
+            app:layout_constraintTop_toBottomOf="@id/til_to" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_details"
+            android:layout_width="@dimen/_100ssp"
+            android:layout_height="@dimen/_48ssp"
+            android:layout_margin="@dimen/_16ssp"
+            android:text="@string/details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ti_from_amount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
