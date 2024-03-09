@@ -68,6 +68,9 @@ dependencies {
     debugImplementation "com.github.chuckerteam.chucker:library:4.0.0"
     releaseImplementation "com.github.chuckerteam.chucker:library-no-op:4.0.0"
 
+    //network connectivity
+    implementation 'com.blankj:utilcodex:1.31.1'
+
     //test libraries
     testImplementation 'junit:junit:4.13.2'
 
