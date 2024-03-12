@@ -83,6 +83,9 @@ dependencies {
     implementation 'com.github.blackfizz:eazegraph:1.2.2@aar'
     implementation 'com.nineoldandroids:library:2.4.0'
 
+    implementation project(path: ':core:presentation')
+    implementation project(path: ':domain')
+
     //test libraries
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:2.44"
 
