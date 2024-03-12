@@ -1,11 +1,11 @@
 package com.nahlasamir244.currencyapp.history
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.nahlasamir244.currencyapp.R
 
 class HistoryFragment : Fragment() {
