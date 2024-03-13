@@ -2,6 +2,7 @@ package com.nahlasamir244.core.data.di
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.nahlasamir244.core.data.BuildConfig
 import com.nahlasamir244.core.data.network.NetworkInterceptor
 import com.nahlasamir244.core.data.utils.NetworkConstants
 import dagger.Module
@@ -64,7 +65,7 @@ class NetworkModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.Base_Url)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory).build()
     }
