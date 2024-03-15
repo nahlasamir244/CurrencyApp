@@ -1,4 +1,4 @@
-package com.nahlasamir244.core.data.common
+package com.nahlasamir244.core.datautils
 
 import com.google.gson.annotations.SerializedName
 

@@ -2,6 +2,8 @@ package com.nahlasamir244.core.data.common
 
 import android.util.Log
 import com.nahlasamir244.core.data.utils.NetworkConnectivityHelper
+import com.nahlasamir244.core.datautils.NoInternetException
+import com.nahlasamir244.core.datautils.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector

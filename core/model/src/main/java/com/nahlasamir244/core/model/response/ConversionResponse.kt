@@ -1,7 +1,6 @@
-package com.nahlasamir244.data.network.model.response
+package com.nahlasamir244.core.model.response
 
 import com.google.gson.annotations.SerializedName
-import com.nahlasamir244.core.data.common.BaseResponse
 
 data class ConversionResponse(
     @SerializedName("query") var query: Query? = null,

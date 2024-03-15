@@ -1,5 +1,24 @@
 package com.nahlasamir244.core.data.common
 
+import com.nahlasamir244.core.datautils.ApiException
+import com.nahlasamir244.core.datautils.EmptyResultException
+import com.nahlasamir244.core.datautils.ExceededTimeframeException
+import com.nahlasamir244.core.datautils.InactiveAccountException
+import com.nahlasamir244.core.datautils.InternalServerErrorException
+import com.nahlasamir244.core.datautils.InvalidApiKeyException
+import com.nahlasamir244.core.datautils.InvalidBaseCurrencyException
+import com.nahlasamir244.core.datautils.InvalidDateException
+import com.nahlasamir244.core.datautils.InvalidEndDateException
+import com.nahlasamir244.core.datautils.InvalidEndpointException
+import com.nahlasamir244.core.datautils.InvalidStartDateException
+import com.nahlasamir244.core.datautils.InvalidSymbolException
+import com.nahlasamir244.core.datautils.InvalidTimeframeException
+import com.nahlasamir244.core.datautils.MonthlyRequestLimitExceededException
+import com.nahlasamir244.core.datautils.NoAmountSpecifiedException
+import com.nahlasamir244.core.datautils.NoDateSpecifiedException
+import com.nahlasamir244.core.datautils.NoTimeframeSpecifiedException
+import com.nahlasamir244.core.datautils.ResourceNotFoundException
+import com.nahlasamir244.core.datautils.UnsupportedEndpointException
 import retrofit2.Response
 
 open class CommonRemoteDataSource {

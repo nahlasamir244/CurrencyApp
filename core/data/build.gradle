@@ -79,6 +79,8 @@ dependencies {
     //test libraries
     testImplementation 'junit:junit:4.13.2'
 
+    api project(path: ':core:model')
+
 }
 kapt {
     correctErrorTypes true

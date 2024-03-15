@@ -1,4 +1,4 @@
-package com.nahlasamir244.core.data.common
+package com.nahlasamir244.core.datautils
 
 sealed class Result<out T> {
     data class Success<out T>(val data: T?) : Result<T>()

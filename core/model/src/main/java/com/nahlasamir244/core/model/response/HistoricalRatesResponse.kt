@@ -1,10 +1,9 @@
-package com.nahlasamir244.data.network.model.response
+package com.nahlasamir244.core.model.response
 
 import com.google.gson.annotations.SerializedName
-import com.nahlasamir244.core.data.common.BaseResponse
 
-
-data class ExchangeRatesResponse(
+data class HistoricalRatesResponse(
+    @SerializedName("historical") var historical: Boolean? = null,
     @SerializedName("base") var base: String? = null,
     @SerializedName("rates") var rates: Map<String, Double>? = null
 
