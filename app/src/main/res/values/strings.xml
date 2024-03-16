@@ -8,4 +8,8 @@
     <string name="chart">Chart</string>
     <string name="history_list">History List</string>
     <string name="currencies_list">Currencies List</string>
+    <string name="no_internet_message">Failed to connect you are offline !</string>
+    <string name="same_from_to_currency">cant convert to same currency !</string>
+    <string name="invalid_amount">invalid amount entered !</string>
+    <string name="retry">retry</string>
 </resources>

@@ -39,6 +39,7 @@
                 android:id="@+id/et_from_dropdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:focusable="false"
                 android:inputType="none"
                 android:maxLines="1"
@@ -64,6 +65,7 @@
                 android:id="@+id/et_to_dropdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:focusable="false"
                 android:inputType="none"
                 android:maxLines="1"
@@ -73,7 +75,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_exchange"
+            android:id="@+id/btn_swap_symbols"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/_8ssp"
@@ -91,6 +93,8 @@
             android:hint="@string/amount"
             android:inputType="number"
             android:minHeight="@dimen/_42ssp"
+            android:enabled="false"
+            android:focusable="false"
             app:layout_constraintEnd_toEndOf="@id/til_from"
             app:layout_constraintStart_toStartOf="@id/til_from"
             app:layout_constraintTop_toBottomOf="@id/til_from" />
@@ -103,6 +107,8 @@
             android:hint="@string/amount"
             android:inputType="number"
             android:minHeight="@dimen/_42ssp"
+            android:enabled="false"
+            android:focusable="false"
             app:layout_constraintEnd_toEndOf="@id/til_to"
             app:layout_constraintStart_toStartOf="@id/til_to"
             app:layout_constraintTop_toBottomOf="@id/til_to" />
@@ -117,5 +123,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ti_from_amount" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_retry"
+            android:layout_width="@dimen/_100ssp"
+            android:layout_height="@dimen/_48ssp"
+            android:layout_margin="@dimen/_16ssp"
+            android:text="@string/retry"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_details" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

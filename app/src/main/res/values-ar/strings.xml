@@ -9,4 +9,8 @@
     <string name="chart">رسم بيانى</string>
     <string name="history_list">قيمة العملة مؤخرا</string>
     <string name="currencies_list">قائمة العملات</string>
+    <string name="no_internet_message">فشل محاولة الاتصال بالانترنت</string>
+    <string name="retry">اعد المحاولة</string>
+    <string name="same_from_to_currency">لا يمكن التحويل لنفس العملة</string>
+    <string name="invalid_amount">برجاء ادخال قيمة موجبة</string>
 </resources>

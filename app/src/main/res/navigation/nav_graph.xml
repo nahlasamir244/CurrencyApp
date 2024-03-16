@@ -8,5 +8,14 @@
         android:id="@+id/homeFragment"
         android:name="com.nahlasamir244.currencyapp.conversion.HomeFragment"
         android:label="homeFragment"
-        tools:layout="@layout/fragment_home"></fragment>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.nahlasamir244.currencyapp.history.HistoryFragment"
+        android:label="historyFragment"
+        tools:layout="@layout/fragment_history" />
 </navigation>
