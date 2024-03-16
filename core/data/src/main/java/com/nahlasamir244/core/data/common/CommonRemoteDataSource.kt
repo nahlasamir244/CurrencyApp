@@ -1,6 +1,7 @@
 package com.nahlasamir244.core.data.common
 
 import com.nahlasamir244.core.datautils.ApiException
+import com.nahlasamir244.core.datautils.BaseResponse
 import com.nahlasamir244.core.datautils.EmptyResultException
 import com.nahlasamir244.core.datautils.ExceededTimeframeException
 import com.nahlasamir244.core.datautils.InactiveAccountException
