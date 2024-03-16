@@ -1,4 +1,4 @@
-package com.nahlasamir244.currencyapp.util.espressoutils
+package com.nahlasamir244.test.util.espressoutils
 
 import android.content.res.Resources
 import android.view.View

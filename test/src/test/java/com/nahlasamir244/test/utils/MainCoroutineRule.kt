@@ -1,4 +1,4 @@
-package com.nahlasamir244.currencyapp.utils
+package com.nahlasamir244.test.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

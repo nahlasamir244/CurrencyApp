@@ -1,4 +1,4 @@
-package com.nahlasamir244.currencyapp.util.rules
+package com.nahlasamir244.test.util.rules
 
 import android.app.Activity
 import android.content.Intent

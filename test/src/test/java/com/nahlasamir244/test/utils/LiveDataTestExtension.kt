@@ -1,4 +1,4 @@
-package com.nahlasamir244.currencyapp.utils
+package com.nahlasamir244.test.utils
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
