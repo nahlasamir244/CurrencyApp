@@ -64,7 +64,7 @@ class ConvertCurrencyUseCaseTest {
     @Test
     fun `ConvertCurrencyUseCase should return conversion rate times amount when request is successful`() =
         runTest {
-            val rate  = 12.5
+            val rate = 12.5
             val amount = 3.0
             val expected = 37.5
             val response = ExchangeRatesResponse(null, mapOf("EUR" to rate))
@@ -75,7 +75,7 @@ class ConvertCurrencyUseCaseTest {
                     )
                 )
             )
-            usecase("","",amount).test {
+            usecase("", "", amount).test {
                 awaitItem() shouldBeEqualTo Result.Success(expected)
                 awaitComplete()
             }
