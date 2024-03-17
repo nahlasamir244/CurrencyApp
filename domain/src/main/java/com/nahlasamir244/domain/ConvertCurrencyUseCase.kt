@@ -18,7 +18,7 @@ class ConvertCurrencyUseCase @Inject constructor(
             is Result.Success -> {
                 val rate = it.data?.rates?.toList()?.firstOrNull()?.second
                 val result = if (rate == null) {
-                    rate
+                    null
                 } else {
                     amount * rate
                 }

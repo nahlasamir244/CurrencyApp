@@ -11,7 +11,7 @@ sealed class HomeScreenContract {
     }
 
     sealed class Action {
-        object FetchSymbols : Action()
+        object FetchSymbols : Action() // called also on retry
         data class ConvertCurrency(
             val baseCurrencySymbol: String,
             val baseCurrencyAmount: Double,
@@ -19,7 +19,6 @@ sealed class HomeScreenContract {
             val calculatedFor: Amount
         ) : Action() // called when swap symbols , currency symbol selected , on any amount value changed
 
-        object Retry : Action()
         object OnDetailsClicked : Action()
     }
 
@@ -28,6 +27,7 @@ sealed class HomeScreenContract {
         data class CurrencySymbolsSuccess(val currencySymbolList: List<CurrencyUiModel>) :
             State()
 
+        object EmptySymbolsList : State()
         data class CurrencySymbolsError(val message: String) : State() //disable all screen
         data class ConvertCurrencySuccess(val convertedAmount: Double, val calculatedFor: Amount) :
             State()
@@ -36,6 +36,7 @@ sealed class HomeScreenContract {
     sealed class Event {
         //to display error toast message
         data class Warning(val message: String) : Event()
+        object InternetConnectionError : Event()
         object NavigateToHistoryScreen : Event()
     }
 
