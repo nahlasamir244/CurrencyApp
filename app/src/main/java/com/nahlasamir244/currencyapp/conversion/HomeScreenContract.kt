@@ -23,7 +23,8 @@ sealed class HomeScreenContract {
     }
 
     sealed class State {
-        object Loading : State()
+        object SymbolsLoading : State()
+        object ConversionLoading : State()
         data class CurrencySymbolsSuccess(val currencySymbolList: List<CurrencyUiModel>) :
             State()
 
@@ -31,6 +32,8 @@ sealed class HomeScreenContract {
         data class CurrencySymbolsError(val message: String) : State() //disable all screen
         data class ConvertCurrencySuccess(val convertedAmount: Double, val calculatedFor: Amount) :
             State()
+
+        object ConvertCurrencyError : State()
     }
 
     sealed class Event {

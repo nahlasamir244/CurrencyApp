@@ -50,20 +50,11 @@ class HomeViewModel @Inject constructor(
                 when (result) {
                     is Result.Error -> {
                         //this message better be localized
-                        homeState.postValue(
-                            HomeScreenContract.State.CurrencySymbolsError(
-                                result.exception.message ?: "cant fetch symbols"
-                            )
-                        )
-                        homeEvent.postValue(
-                            HomeScreenContract.Event.Warning(
-                                result.exception.message ?: "cant fetch symbols"
-                            )
-                        )
+                        handleFetchSymbolsError(result)
                     }
 
                     Result.Loading -> {
-                        homeState.postValue(HomeScreenContract.State.Loading)
+                        homeState.postValue(HomeScreenContract.State.SymbolsLoading)
                     }
 
                     is Result.Success -> {
@@ -73,6 +64,19 @@ class HomeViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    private fun handleFetchSymbolsError(result: Result.Error) {
+        homeState.postValue(
+            HomeScreenContract.State.CurrencySymbolsError(
+                result.exception.message ?: "cant fetch symbols"
+            )
+        )
+        homeEvent.postValue(
+            HomeScreenContract.Event.Warning(
+                result.exception.message ?: "cant fetch symbols"
+            )
+        )
     }
 
     private fun handleFetchSymbolsSuccess(result: Result.Success<CurrenciesSymbolsResponse>) {
@@ -98,23 +102,11 @@ class HomeViewModel @Inject constructor(
             convertCurrencyUseCase(baseCurrency, toCurrency, amount).collectLatest { result ->
                 when (result) {
                     is Result.Error -> {
-                        when (result.exception) {
-                            is NoInternetException -> {
-                                homeEvent.postValue(HomeScreenContract.Event.InternetConnectionError)
-                            }
-
-                            else -> {
-                                homeEvent.postValue(result.exception.localizedMessage?.let { message ->
-                                    HomeScreenContract.Event.Warning(
-                                        message
-                                    )
-                                })
-                            }
-                        }
+                        handleCurrencyConversionError(result)
                     }
 
                     Result.Loading -> {
-                        homeState.postValue(HomeScreenContract.State.Loading)
+                        homeState.postValue(HomeScreenContract.State.ConversionLoading)
                     }
 
                     is Result.Success -> {
@@ -125,6 +117,23 @@ class HomeViewModel @Inject constructor(
                         })
                     }
                 }
+            }
+        }
+    }
+
+    private fun handleCurrencyConversionError(result: Result.Error) {
+        homeState.postValue(HomeScreenContract.State.ConvertCurrencyError)
+        when (result.exception) {
+            is NoInternetException -> {
+                homeEvent.postValue(HomeScreenContract.Event.InternetConnectionError)
+            }
+
+            else -> {
+                homeEvent.postValue(result.exception.localizedMessage?.let { message ->
+                    HomeScreenContract.Event.Warning(
+                        message
+                    )
+                })
             }
         }
     }
