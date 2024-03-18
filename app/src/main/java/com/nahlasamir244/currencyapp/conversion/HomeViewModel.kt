@@ -7,6 +7,7 @@ import com.nahlasamir244.core.datautils.NoInternetException
 import com.nahlasamir244.core.datautils.Result
 import com.nahlasamir244.core.model.response.CurrenciesSymbolsResponse
 import com.nahlasamir244.core.presentation.livedata.SingleLiveEvent
+import com.nahlasamir244.currencyapp.annotation.OpenForTesting
 import com.nahlasamir244.domain.ConvertCurrencyUseCase
 import com.nahlasamir244.domain.GetCurrencySymbolsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,8 +15,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@OpenForTesting
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+open class HomeViewModel @Inject constructor(
     private val convertCurrencyUseCase: ConvertCurrencyUseCase,
     private val getCurrencySymbolsUseCase: GetCurrencySymbolsUseCase
 ) : ViewModel(), HomeScreenContract.ViewModel {

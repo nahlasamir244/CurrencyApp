@@ -18,10 +18,10 @@ class UiModelMapperTest {
     fun toCurrencyUiModelList() {
         val actualUiModelList = response.mapToCurrencyUiModelList()
         val expectedUiModelList = listOf(
-            CurrencyUiModel("USD", false),
-            CurrencyUiModel("EUR", false),
-            CurrencyUiModel("GBP", false),
-            CurrencyUiModel("JPY", false)
+            CurrencyUiModel("USD"),
+            CurrencyUiModel("EUR"),
+            CurrencyUiModel("GBP"),
+            CurrencyUiModel("JPY")
         )
         Assert.assertEquals(expectedUiModelList, actualUiModelList)
     }
