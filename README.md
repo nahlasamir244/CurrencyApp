@@ -1,9 +1,10 @@
 # Currency Conversion App
 
 multi module android demo for currency conversion using fixer API
-App module : for simplicity holds the presentation layer and navigation logic
-Core modules : holdes the shared logic and utils for each layer 
-Model module : holds the common dtos and classes for the app 
+
+1. App module : for simplicity holds the presentation layer and navigation logic
+2. Core modules : holdes the shared logic and utils for each layer 
+3. Model module : holds the common dtos and classes for the app 
 
 ## Architecture pattern: 
 MVI model view intent single activity architecture following the Data-Domain-Presentation clean architecture and the UDF unidirectional data flow pattern with repository pattern for data as a layer over different offline/online data sources
