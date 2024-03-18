@@ -88,6 +88,7 @@ class HomeFragment : Fragment() {
             progressBar.visibility = View.GONE
             tiToAmount.isEnabled = true
             tiFromAmount.isEnabled = true
+            tiFromAmount.setText("1")
         }
     }
 
